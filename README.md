@@ -76,29 +76,27 @@ The server will start running on http://localhost:3000.
 
 Submissions are stored in `db.json` in the following format:
 
-```json
-[]
+'''json
+   []
 
-# Usage
+## Usage
 ### Using cURL
 Ping
-bash
-Copy code
-curl "http://localhost:3000/ping"
+```bash
+   curl "http://localhost:3000/ping"
 Submit
-bash
-Copy code
-curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "phone": "1234567890",
-  "github_link": "https://github.com/johndoe",
-  "stopwatch_time": "00:02:15"
-}'
+```bash
+   curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
+     "name": "John Doe",
+     "email": "john@example.com",
+     "phone": "1234567890",
+     "github_link": "https://github.com/johndoe",
+     "stopwatch_time": "00:02:15"
+   }'
+
 Read
-bash
-Copy code
-curl "http://localhost:3000/read?index=0"
+```bash
+   curl "http://localhost:3000/read?index=0"
 Delete
 bash
 Copy code
