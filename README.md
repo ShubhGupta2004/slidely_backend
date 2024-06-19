@@ -80,19 +80,27 @@ Submissions are stored in `db.json` in the following format:
    []
 
 ## Usage
+
 ### Using cURL
-Ping
+
+#### Ping
+
 ```bash
-   curl "http://localhost:3000/ping"
-Submit
+curl "http://localhost:3000/ping"
+
+
+## Usage
+
+### Submit
+
 ```bash
-   curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
-     "name": "John Doe",
-     "email": "john@example.com",
-     "phone": "1234567890",
-     "github_link": "https://github.com/johndoe",
-     "stopwatch_time": "00:02:15"
-   }'
+curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "1234567890",
+  "github_link": "https://github.com/johndoe",
+  "stopwatch_time": "00:02:15"
+}'
 
 Read
 ```bash
