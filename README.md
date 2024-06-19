@@ -128,3 +128,6 @@ You can use Postman or any API testing tool to interact with the endpoints. Impo
 
 This project is licensed under the MIT License.
 
+![Screenshot 2024-06-19 162648](https://github.com/ShubhGupta2004/slidely_backend/assets/92709931/c7e260ce-2082-4ac8-8b27-74cf37600f21)
+![Screenshot 2024-06-19 162612](https://github.com/ShubhGupta2004/slidely_backend/assets/92709931/24e7218e-da70-4f17-863f-e6c402fce11b)
+![Screenshot 2024-06-19 162637](https://github.com/ShubhGupta2004/slidely_backend/assets/92709931/1626c99b-821f-41c1-81c3-f0ec5e20508a)
