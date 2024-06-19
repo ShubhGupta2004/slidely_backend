@@ -95,7 +95,6 @@ Submissions are stored in `db.json` in the following format:
    ```bash
    npm install
 3. **Install dependencies**
-
    ```bash
    curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
   "name": "John Doe",
@@ -114,11 +113,12 @@ Submissions are stored in `db.json` in the following format:
    curl "http://localhost:3000/read?index=0"
    
 6. **Delete**
-
    ```bash
    curl -X DELETE "http://localhost:3000/delete/0"
-   
- 
+7. **Edit**
+   ```bash
+   curl -X PUT "http://localhost:3000/edit/0" -H "Content-Type: application/json" -d '{"name": "Updated Name","email": "updated@example.com","phone": "9876543210","github_link": "https://github.com/updated","stopwatch_time": "00:03:30"}'
+
 
 ## Using Postman
 
