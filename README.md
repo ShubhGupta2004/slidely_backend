@@ -90,23 +90,18 @@ Submissions are stored in `db.json` in the following format:
    ```bash
    curl "http://localhost:3000/ping"
 
-2. **Submit**
+2. **read**
 
    ```bash
-   npm install
-3. **Install dependencies**
+   curl "http://localhost:3000/read?index=0"
+   
+3. **submit**
    ```bash
-   curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "phone": "1234567890",
-  "github_link": "https://github.com/johndoe",
-  "stopwatch_time": "00:02:15"
-   }'
+   curl -X POST "http://localhost:3000/submit" -H "Content-Type: application/json" -d '{"name": "John Doe","email": "john@example.com","phone": "1234567890","github_link": "https://github.com/johndoe", "stopwatch_time": "00:02:15"  }'
 
 4. **search by email**
    ```bash
-  curl "http://localhost:3000/search?email=john@example.com"
+   curl "http://localhost:3000/search?email=john@example.com"
    
 5. **Read**
    ```bash
