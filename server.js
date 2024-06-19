@@ -16,7 +16,6 @@ app.post('/submit', function (req, res) {
     var submissions = readSubmissionsFromFile();
     // Add new submission
     submissions.push(submission);
-    console.log(submissions);
     // Write updated submissions to the JSON file
     writeSubmissionsToFile(submissions);
     res.send(submission);
@@ -30,6 +29,37 @@ app.get('/read', function (req, res) {
     else {
         res.status(404).send({ error: 'Index out of bounds' });
     }
+});
+app.delete('/delete/:index', function (req, res) {
+    var index = parseInt(req.params.index);
+    var submissions = readSubmissionsFromFile();
+    if (index >= 0 && index < submissions.length) {
+        var deletedSubmission = submissions.splice(index, 1)[0];
+        writeSubmissionsToFile(submissions);
+        res.send(deletedSubmission);
+    }
+    else {
+        res.status(404).send({ error: 'Submission not found' });
+    }
+});
+app.put('/edit/:index', function (req, res) {
+    var index = parseInt(req.params.index);
+    var updatedSubmission = req.body;
+    var submissions = readSubmissionsFromFile();
+    if (index >= 0 && index < submissions.length) {
+        submissions[index] = updatedSubmission;
+        writeSubmissionsToFile(submissions);
+        res.send(updatedSubmission);
+    }
+    else {
+        res.status(404).send({ error: 'Submission not found' });
+    }
+});
+app.get('/search', function (req, res) {
+    var email = req.query.email;
+    var submissions = readSubmissionsFromFile();
+    var filteredSubmissions = submissions.filter(function (submission) { return submission.email === email; });
+    res.send(filteredSubmissions);
 });
 app.listen(port, function () {
     console.log("Server is running on port ".concat(port));

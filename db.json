@@ -4,7 +4,7 @@
     "Email": "hello",
     "PhoneNumber": "12345",
     "GithubLink": "fss",
-    "StopwatchTime": 12947
+    "StopwatchTime": 12944
   },
   {
     "Name": "shubh",
@@ -19,12 +19,5 @@
     "PhoneNumber": "12345",
     "GithubLink": "fss",
     "StopwatchTime": 148557
-  },
-  {
-    "Name": "g",
-    "Email": "",
-    "PhoneNumber": "",
-    "GithubLink": "",
-    "StopwatchTime": 3797
   }
 ]

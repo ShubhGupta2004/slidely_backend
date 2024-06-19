@@ -29,8 +29,6 @@ app.post('/submit', (req, res) => {
   
   // Add new submission
   submissions.push(submission);
-
-  console.log(submissions)
   
   // Write updated submissions to the JSON file
   writeSubmissionsToFile(submissions);
@@ -47,6 +45,41 @@ app.get('/read', (req, res) => {
   } else {
     res.status(404).send({ error: 'Index out of bounds' });
   }
+});
+
+app.delete('/delete/:index', (req, res) => {
+  const index = parseInt(req.params.index);
+  let submissions = readSubmissionsFromFile();
+  
+  if (index >= 0 && index < submissions.length) {
+    const deletedSubmission = submissions.splice(index, 1)[0];
+    writeSubmissionsToFile(submissions);
+    res.send(deletedSubmission);
+  } else {
+    res.status(404).send({ error: 'Submission not found' });
+  }
+});
+
+app.put('/edit/:index', (req, res) => {
+  const index = parseInt(req.params.index);
+  const updatedSubmission: Submission = req.body;
+  let submissions = readSubmissionsFromFile();
+  
+  if (index >= 0 && index < submissions.length) {
+    submissions[index] = updatedSubmission;
+    writeSubmissionsToFile(submissions);
+    res.send(updatedSubmission);
+  } else {
+    res.status(404).send({ error: 'Submission not found' });
+  }
+});
+
+app.get('/search', (req, res) => {
+  const email = req.query.email as string;
+  const submissions = readSubmissionsFromFile();
+  const filteredSubmissions = submissions.filter(submission => submission.email === email);
+  
+  res.send(filteredSubmissions);
 });
 
 app.listen(port, () => {
